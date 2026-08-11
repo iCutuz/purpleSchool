@@ -26,12 +26,12 @@ spec:
               memory: 500Mi
               cpu: 200m
           env:
-            - name: SEED_USERNAME
+            - name: AMQP_USER
               valueFrom:
                 secretKeyRef:
-                  key: AMQP_USERNAME
+                  key: AMQP_USER
                   name: conv-secret
-            - name: SEED_USER_PASSWORD
+            - name: AMQP_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: AMQP_PASSWORD

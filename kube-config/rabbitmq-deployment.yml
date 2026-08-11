@@ -22,22 +22,12 @@ spec:
             - name: SEED_USERNAME
               valueFrom:
                 secretKeyRef:
-                  key: AMQP_USERNAME
+                  key: AMQP_USER
                   name: conv-secret
             - name: SEED_USER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: AMQP_PASSWORD
-                  name: conv-secret
-            - name: AMQP_EXCHANGE
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_EXCHANGE
-                  name: conv-secret
-            - name: AMQP_HOSTNAME
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_HOSTNAME
                   name: conv-secret
           resources:
             requests:
