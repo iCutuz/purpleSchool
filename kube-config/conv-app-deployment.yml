@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: short-app-deployment
+  name: conv-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       components: frontend
   template:
     metadata:
-      name: short-app
+      name: conv-app
       labels:
         components: frontend
     spec:
       containers:
-        - name: short-app
-          image: antonlarichev/short-app
+        - name: conv-app
+          image: antonlarichev/conv-app:1.0
           ports:
             - containerPort: 80
           resources:
             requests:
-              memory: 128Mi
+              memory: 256Mi
               cpu: 100m
             limits:
-              memory: 128Mi
+              memory: 256Mi
               cpu: 100m
