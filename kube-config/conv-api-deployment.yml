@@ -20,32 +20,14 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              memory: 500Mi
-              cpu: 200m
+              memory: 256Mi
+              cpu: 100m
             limits:
               memory: 500Mi
               cpu: 200m
-          env:
-            - name: AMQP_USER
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_USER
-                  name: conv-secret
-            - name: AMQP_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_PASSWORD
-                  name: conv-secret
-            - name: AMQP_EXCHANGE
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_EXCHANGE
-                  name: conv-secret
-            - name: AMQP_HOSTNAME
-              valueFrom:
-                secretKeyRef:
-                  key: AMQP_HOSTNAME
-                  name: conv-secret
+          envFrom:
+            - secretRef:
+                name: conv-secret
           volumeMounts:
             - name: conv-api-data
               mountPath: /opt/app/uploads
