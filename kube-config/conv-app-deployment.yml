@@ -25,6 +25,9 @@ spec:
             limits:
               memory: 256Mi
               cpu: 100m
-          envFrom:
-            - configMapRef:
-                name: conv-config
+          env:
+            - name: VITE_DOMAIN
+              valueFrom:
+                configMapKeyRef:
+                  key: VITE_DOMAIN
+                  name: conv-config
