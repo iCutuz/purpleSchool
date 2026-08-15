@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: conv-app
+  name: converter
 spec:
   replicas: 2
   selector:
     matchLabels:
-      components: frontend
+      components: backend
   template:
     metadata:
-      name: conv-app
+      name: converter
       labels:
-        components: frontend
+        components: backend
     spec:
       containers:
-        - name: conv-app
-          image: antonlarichev/conv-app:1.0
+        - name: converter
+          image: antonlarichev/conv-service:1.0
           ports:
-            - containerPort: 80
+            - containerPort: 3080
           resources:
             requests:
               memory: 256Mi
@@ -26,5 +26,5 @@ spec:
               memory: 256Mi
               cpu: 100m
           envFrom:
-            - configMapRef:
-                name: conv-config
+            - secretRef:
+                name: conv-secret
