@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 3080
+    - port: 82
       protocol: TCP
   selector:
     components: converter
