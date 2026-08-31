@@ -1,1 +1,12 @@
-name: Andrei
+app:
+  replicas: 1
+  name: short-app
+  image: antonlarichev/short-app
+  version: v1.4
+  components: frontend
+  port: 80
+  resources:
+    memory: 128Mi
+    cpu: 100m
+    memorylimit: 128Mi
+    cpulimit: 100m
