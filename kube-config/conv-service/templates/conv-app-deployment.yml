@@ -17,7 +17,7 @@ spec:
         - name: {{ .Values.name }}
           image: "{{ .Values.app.image }}:{{ .Values.app.version }}"
           ports:
-            - containerPort: {{ .Values.app.port }}
+            - containerPort: {{ .Values.app.ports }}
           resources:
             requests:
               memory: 128Mi
