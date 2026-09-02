@@ -1,0 +1,11 @@
+name: conv-app
+replicas: 2
+components: frontend
+app:
+  image: antonlarichev/conv-app
+  version: 1.2
+  ports: 80
+  configMapKeyRef:
+    key: VITE_DOMAIN
+    name: conv-config
+host: conv.test
